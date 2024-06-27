@@ -1,0 +1,128 @@
+// script.js
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (!getCookie('cookieConsent')) {
+      createCookieConsentBanner();
+    }
+  });
+  
+  function createCookieConsentBanner() {
+    // Create the banner div
+    const cookieConsent = document.createElement('div');
+    cookieConsent.className = 'cookieConsent';
+  
+    // Create the container div
+    const container = document.createElement('div');
+    container.className = 'cookieConsentContainer';
+  
+    // Create the message paragraph
+    const message = document.createElement('p');
+    message.innerHTML = 'ჩვენ ვიყენებთ Cookie ფაილებს, რათა გაგიმარტივოთ ნავიგაცია და მოვარგოთ ვებგვერდი თქვენს საჭიროებებს. დახურვის ღილაკზე დაჭერით თქვენ ეთანხმებით ჩვენს. <a href="/cookie-policy" target="_blank">Cookie პოლიტიკას.</a>';
+  
+    // Create the accept button
+    const button = document.createElement('button');
+    button.className = 'acceptCookies';
+    button.textContent = 'დახურვა';
+    button.addEventListener('click', () => {
+      setCookie('cookieConsent', 'true', 365);
+      cookieConsent.style.display = 'none';
+    });
+  
+    // Append elements to the container
+    container.appendChild(message);
+    container.appendChild(button);
+  
+    // Append container to the banner
+    cookieConsent.appendChild(container);
+  
+    // Append banner to the body
+    document.body.appendChild(cookieConsent);
+  
+    // Add CSS styles
+    addCookieConsentStyles();
+  }
+  
+  function addCookieConsentStyles() {
+    const styles = `
+        .cookieConsent {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            z-index: 1000;
+            font-family: 'Noto Sans ambassadori';
+            overflow: hidden;
+        }
+        .cookieConsentContainer {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+  
+        .cookieConsentContainer p {
+            margin: 0;
+            font-size: 10px;
+        }
+  
+        .cookieConsentContainer a {
+            color: #cf167d;
+            text-decoration: none;
+        }
+  
+        .cookieConsentContainer .acceptCookies {
+            background-color: #cf167d;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 10px;
+            font-family: 'Noto Sans ambassadori';
+            border-radius: 5px;
+        }
+        @media (max-width: 1200px) {
+            .cookieConsent > div {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .cookieConsentContainer p {
+                padding-right: 40px;
+            }
+            .cookieConsentContainer .acceptCookies {
+                margin-right: 35px;
+            }
+        }
+    `;
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'style-cookie';
+    styleSheet.type = 'text/css';
+    styleSheet.innerText = styles;
+    document.head.appendChild(styleSheet);
+  }
+  
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+  
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        return c.substring(nameEQ.length, c.length);
+      }
+    }
+    return null;
+  }
+  
