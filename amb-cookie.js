@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             text-align: center;
             padding: 20px;
             z-index: 1000;
-            font-family: 'Noto Sans ambassadori';
+            font-family: 'Noto Sans Ambassadori';
             overflow: hidden;
         }
         .cookieConsentContainer {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             padding: 10px 20px;
             cursor: pointer;
             font-size: 10px;
-            font-family: 'Noto Sans ambassadori';
+            font-family: 'Noto Sans Ambassadori';
             border-radius: 5px;
         }
         @media (max-width: 1200px) {
