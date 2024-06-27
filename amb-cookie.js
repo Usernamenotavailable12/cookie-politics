@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
   
         .cookieConsentContainer a {
-            color: #cf167d;
+            color: #cf167d !important;
             text-decoration: none;
         }
   
