@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
     // Create the message paragraph
     const message = document.createElement('p');
-    message.innerHTML = 'ჩვენ ვიყენებთ Cookie ფაილებს, რათა გაგიმარტივოთ ნავიგაცია და მოვარგოთ ვებგვერდი თქვენს საჭიროებებს. დახურვის ღილაკზე დაჭერით თქვენ ეთანხმებით ჩვენს. <a href="/cookie-policy" target="_blank">Cookie პოლიტიკას.</a>';
+    message.innerHTML = 'საიტი იყენებს Cookie ფაილებს. დახურვის ღილაკზე დაჭერით თქვენ ეთანხმებით Cookie ფაილების გამოყენების წესებს და პირობებს. <a href="https://www.ambassadoribet.com/privacy" target="_blank">კონფიდენციალურობის პოლიტიკას.</a>';
   
     // Create the accept button
     const button = document.createElement('button');
