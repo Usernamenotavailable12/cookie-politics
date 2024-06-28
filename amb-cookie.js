@@ -102,7 +102,11 @@ function addCookieConsentStyles() {
                 flex-direction: column;
                 gap: 10px;
             }
-
+        }
+        @media (max-width: 768px) {
+            .amb-cookie-container {
+            position: fixed;
+            bottom: 0px;
         }
     `;
     const styleSheet = document.createElement('style');
